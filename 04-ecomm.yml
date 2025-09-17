@@ -13,9 +13,6 @@
     git:
       repo: ' https://github.com/Aramide-star/ecomm-3.git
       dest:   /var/www/html/ecomm-3       
-      version: HEAD   
-      force: yes
-      accept_hostkey: yes
 ...
 
 
