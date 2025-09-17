@@ -1,0 +1,24 @@
+---
+- name: Dep;oy Ecomm Web Application
+  hosts: n2
+  become: yes
+ 
+  tasks:
+  - name: Install git
+    yum:
+      name: git
+      state: present
+
+
+
+  - name: Host Code
+    git:
+      repo: ' https://github.com/Aramide-star/ecomm-3.git
+      dest:   /var/www/html/ecomm-3       
+      version: HEAD   
+      force: yes
+      accept_hostkey: yes
+
+...
+
+
