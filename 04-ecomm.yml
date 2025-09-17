@@ -1,5 +1,5 @@
 ---
-- name: Dep;oy Ecomm Web Application
+- name: Deploy Ecomm Web Application
   hosts: n2
   become: yes
  
@@ -12,7 +12,8 @@
   - name: Host Code
     git:
       repo: ' https://github.com/Aramide-star/ecomm-3.git
-      dest:   /var/www/html     
+      dest:   /var/www/html   
+
 ...
 
 
