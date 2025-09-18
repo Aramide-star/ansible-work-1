@@ -11,7 +11,7 @@
 
   - name: Host Code
     git:
-      repo: https://github.com/Aramide-star/ecomm-3.git
+      repo: https://github.com/Aramide-star/food3.git
       dest: /var/www/html  
 ...
 
