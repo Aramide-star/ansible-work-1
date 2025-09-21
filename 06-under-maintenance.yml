@@ -8,5 +8,4 @@
       copy:
         src: under-maintenance.html
         dest: /var/www/html/under-maintenance.html        
-        msg: "The system is currently under maintenance. Please try again later."
----
+        msg: "The system is currently under maintenance. Please try again later.
