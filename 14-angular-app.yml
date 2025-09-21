@@ -1,5 +1,5 @@
 ---
-- name: Deploy html Application
+- name: Deploy angular Application
   hosts: n1
   become: yes
  
