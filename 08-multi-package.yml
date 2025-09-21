@@ -19,19 +19,19 @@
         enabled: yes
       when: ansible_distribution == "Amazon"
 
-    # CentOS
-    - name: Install HTTPD on CentOS
+    # Red Hat/CentOS
+    - name: Install HTTPD on  Red Hat/CentOS
       yum:
         name: httpd
         state: present
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "Red Hat"{{ " or " }}ansible_distribution == "CentOS"
 
     - name: Start and enable HTTPD on CentOS
       service:
         name: httpd
         state: started
         enabled: yes
-      when: ansible_distribution == "CentOS"
+      when: ansible_distribution == "Red Hat"{{ " or " }}ansible_distribution == "CentOS"
 
     # Ubuntu
     - name: Install Apache2 on Ubuntu
@@ -62,4 +62,3 @@
         state: started
         enabled: yes
       when: ansible_distribution == "Debian"
-      
