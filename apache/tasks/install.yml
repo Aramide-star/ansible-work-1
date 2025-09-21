@@ -1,0 +1,36 @@
+---
+    # Amazon Linux & RedHat-based (includes CentOS)
+    - name: Install multiple packages on RedHat-based systems
+      yum:
+        name:
+          - httpd
+        state: present
+      when: ansible_distribution in ["Amazon", "RedHat", "CentOS"]
+
+    - name: Start and enable httpd (RedHat-based)
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - httpd
+      
+      when: ansible_distribution in ["Amazon", "RedHat", "CentOS"]
+
+    # Ubuntu & Debian
+    - name: Install multiple packages on Ubuntu/Debian
+      apt:
+        name:
+          - apache2
+        state: present
+        update_cache: yes
+      when: ansible_distribution in ["Ubuntu", "Debian"]
+
+    - name: Start and enable apache2 (Ubuntu/Debian)
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: yes
+      loop:
+        - apache2
+      when: ansible_distribution in ["Ubuntu", "Debian"]

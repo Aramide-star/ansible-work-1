@@ -1,2 +1,6 @@
 ---
 # vars file for apache
+vars:
+      page_title: "Welcome to My Website"
+      header: "Hello, World!"
+      body: "This is a sample web page created using Ansible."

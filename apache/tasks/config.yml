@@ -1,0 +1,12 @@
+---
+    - name: Copy static HTML file to web server directory
+      copy:
+        src: static.html
+        dest: /var/www/html/static.html
+      when: ansible_distribution in ["Ubuntu", "Debian", "RedHat", "CentOS", "Amazon"]
+      
+    - name: Copy dynamic HTML file to web server directory
+      template:
+        src: dynamic.j2
+        dest: /var/www/html/dynamic.html
+      when: ansible_distribution in ["Ubuntu", "Debian", "RedHat", "CentOS", "Amazon"]
