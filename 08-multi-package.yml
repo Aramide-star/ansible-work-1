@@ -1,6 +1,8 @@
 ---
 - name: Install Web Server Based on OS Type
-  hosts: g1 , g2
+  hosts:
+    - g1
+    - g2
   become: yes
 
   tasks:
@@ -19,19 +21,19 @@
         enabled: yes
       when: ansible_distribution == "Amazon"
 
-    # Red Hat/CentOS
-    - name: Install HTTPD on  Red Hat/CentOS
+    # RedHat / CentOS
+    - name: Install HTTPD on RedHat/CentOS
       yum:
         name: httpd
         state: present
-      when: ansible_distribution == "Red Hat"{{ " or " }}ansible_distribution == "CentOS"
+      when: ansible_distribution in ["RedHat", "CentOS"]
 
-    - name: Start and enable HTTPD on CentOS
+    - name: Start and enable HTTPD on RedHat/CentOS
       service:
         name: httpd
         state: started
         enabled: yes
-      when: ansible_distribution == "Red Hat"{{ " or " }}ansible_distribution == "CentOS"
+      when: ansible_distribution in ["RedHat", "CentOS"]
 
     # Ubuntu
     - name: Install Apache2 on Ubuntu
