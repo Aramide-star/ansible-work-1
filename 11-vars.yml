@@ -1,0 +1,17 @@
+---
+- name: Deploy variable HTML page
+  hosts:
+    - g1
+  become: yes 
+  vars:
+      page_title: "Welcome to My Website"
+      header: "Hello, World!"
+      body: "This is a sample web page created using Ansible."
+
+  tasks:
+    - name: update dynamic HTML file to web server directory
+      template:
+        src: dynamic.j2
+        dest: /var/www/html/dynamic.html
+      when: ansible_distribution in ["Ubuntu", "Debian", "RedHat", "CentOS", "Amazon"]
+
