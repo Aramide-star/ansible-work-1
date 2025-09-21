@@ -1,11 +1,16 @@
 ---
+- name: Under Maintenan---
 - name: Under Maintenance
   hosts: n2
   become: yes
 
   tasks:
-    - name: Display maintenance message
+    - name: Copy maintenance page
       copy:
         src: under-maintenance.html
-        dest: /var/www/html/under-maintenance.html        
-        msg: "The system is currently under maintenance. Please try again later.
+        dest: /var/www/html/under-maintenance.html
+
+    - name: Display maintenance message to user
+      debug:
+        msg: "The system is currently under maintenance. Please try again later."
+
